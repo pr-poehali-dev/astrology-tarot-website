@@ -90,124 +90,104 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen cosmic-gradient relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="star"
-            style={{
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 3 + 's',
-            }}
-          />
-        ))}
-      </div>
+    <div className="min-h-screen modern-gradient">
+      <header className="border-b border-border bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
+          <h1 className="text-2xl font-bold tracking-tight">Астролог & Таролог</h1>
+          <div className="flex gap-8 text-sm font-medium">
+            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">
+              Услуги
+            </a>
+            <a href="#horoscope" className="text-muted-foreground hover:text-foreground transition-colors">
+              Гороскоп
+            </a>
+            <a href="#booking" className="text-muted-foreground hover:text-foreground transition-colors">
+              Запись
+            </a>
+          </div>
+        </nav>
+      </header>
 
-      <div className="relative z-10">
-        <header className="container mx-auto px-4 py-8">
-          <nav className="flex justify-between items-center backdrop-blur-sm bg-card/30 rounded-2xl p-4 border border-primary/20">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              ✨ Астролог & Таролог
-            </h1>
-            <div className="flex gap-6">
-              <a href="#services" className="text-foreground/80 hover:text-accent transition-colors">
-                Услуги
-              </a>
-              <a href="#horoscope" className="text-foreground/80 hover:text-accent transition-colors">
-                Гороскоп
-              </a>
-              <a href="#booking" className="text-foreground/80 hover:text-accent transition-colors">
-                Запись
-              </a>
-            </div>
-          </nav>
-        </header>
+      <main>
 
-        <section className="container mx-auto px-4 py-20 text-center">
-          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-            <h2 className="text-6xl md:text-7xl font-bold leading-tight">
+        <section className="container mx-auto px-4 py-24 text-center">
+          <div className="max-w-5xl mx-auto space-y-10 fade-in-up">
+            <h2 className="text-7xl md:text-8xl font-bold leading-[1.1] tracking-tight">
               Откройте тайны
               <br />
-              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                вашей судьбы
-              </span>
+              вашей судьбы
             </h2>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Персональные астрологические консультации и таро-расклады для тех, кто ищет ответы в звёздах
             </p>
-            <div className="flex gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6">
-                <Icon name="Star" className="mr-2" size={20} />
+            <div className="flex gap-4 justify-center pt-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 h-12 text-base font-medium">
                 Записаться на консультацию
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-accent text-accent hover:bg-accent/10 text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="border-2 border-border hover:bg-secondary px-8 h-12 text-base font-medium">
                 Узнать больше
               </Button>
             </div>
-            <div className="mt-12">
+            <div className="mt-16 pt-8">
               <img
                 src="https://cdn.poehali.dev/projects/1135127a-a339-448f-bde7-767d994e9d13/files/d8b5cbca-75ee-4136-b46f-940988ae0c81.jpg"
                 alt="Мистические карты таро"
-                className="rounded-3xl shadow-2xl mx-auto max-w-2xl w-full border-2 border-primary/30"
+                className="rounded-2xl shadow-sm mx-auto max-w-3xl w-full border border-border"
               />
             </div>
           </div>
         </section>
 
-        <section id="services" className="container mx-auto px-4 py-20">
-          <h2 className="text-5xl font-bold text-center mb-16">
-            Мои <span className="text-accent">услуги</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-accent transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20"
-              >
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
-                    <Icon name={service.icon as any} size={32} className="text-accent" />
-                  </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                  <CardDescription className="text-foreground/70">{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-foreground/60">Цена:</span>
-                      <span className="text-2xl font-bold text-accent">{service.price}</span>
+        <section id="services" className="container mx-auto px-4 py-24 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-20 tracking-tight">
+              Мои услуги
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {services.map((service, index) => (
+                <Card
+                  key={index}
+                  className="bg-white border border-border hover:border-primary transition-all duration-200 hover:shadow-lg group"
+                >
+                  <CardHeader className="space-y-4">
+                    <div className="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors">
+                      <Icon name={service.icon as any} size={28} className="text-foreground group-hover:text-primary-foreground transition-colors" />
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-foreground/60">Длительность:</span>
-                      <span className="text-foreground/90">{service.duration}</span>
+                    <CardTitle className="text-2xl font-semibold">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">{service.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div className="flex justify-between items-baseline border-t border-border pt-4">
+                      <span className="text-sm text-muted-foreground">Цена</span>
+                      <span className="text-3xl font-bold">{service.price}</span>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-muted-foreground">Длительность</span>
+                      <span className="font-medium">{service.duration}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="horoscope" className="container mx-auto px-4 py-20">
-          <h2 className="text-5xl font-bold text-center mb-4">
-            Гороскоп на <span className="text-accent">сегодня</span>
-          </h2>
-          <p className="text-center text-foreground/70 mb-12 text-lg">
-            Выберите свой знак зодиака и узнайте, что готовят вам звёзды
-          </p>
-
+        <section id="horoscope" className="container mx-auto px-4 py-24 bg-secondary/30">
           <div className="max-w-6xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-4 tracking-tight">
+              Гороскоп на сегодня
+            </h2>
+            <p className="text-center text-muted-foreground mb-16 text-lg">
+              Выберите свой знак зодиака и узнайте, что готовят вам звёзды
+            </p>
+
             <Tabs value={selectedSign} onValueChange={setSelectedSign} className="w-full">
-              <TabsList className="grid grid-cols-6 md:grid-cols-12 gap-2 h-auto bg-card/30 backdrop-blur-sm p-4 rounded-2xl">
+              <TabsList className="grid grid-cols-6 md:grid-cols-12 gap-3 h-auto bg-white p-6 rounded-xl border border-border shadow-sm">
                 {zodiacSigns.map((sign) => (
                   <TabsTrigger
                     key={sign.name}
                     value={sign.name}
-                    className="text-3xl p-4 data-[state=active]:bg-primary data-[state=active]:text-white rounded-xl transition-all hover:scale-110"
+                    className="text-2xl p-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all hover:bg-secondary"
                   >
                     {sign.icon}
                   </TabsTrigger>
@@ -215,27 +195,26 @@ export default function Index() {
               </TabsList>
 
               {zodiacSigns.map((sign) => (
-                <TabsContent key={sign.name} value={sign.name} className="mt-8">
-                  <Card className="bg-card/50 backdrop-blur-sm border-primary/30">
-                    <CardHeader>
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="text-6xl">{sign.icon}</div>
+                <TabsContent key={sign.name} value={sign.name} className="mt-10">
+                  <Card className="bg-white border border-border shadow-sm">
+                    <CardHeader className="pb-6">
+                      <div className="flex items-center gap-6">
+                        <div className="text-7xl">{sign.icon}</div>
                         <div>
-                          <CardTitle className="text-4xl">{sign.name}</CardTitle>
-                          <CardDescription className="text-lg text-foreground/70">
+                          <CardTitle className="text-4xl font-bold mb-2">{sign.name}</CardTitle>
+                          <CardDescription className="text-base text-muted-foreground">
                             {sign.dates} • {sign.element}
                           </CardDescription>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-lg leading-relaxed text-foreground/90">{horoscopes[sign.name as keyof typeof horoscopes]}</p>
-                      <div className="mt-6 flex gap-3">
-                        <Button className="bg-primary hover:bg-primary/90">
-                          <Icon name="Star" className="mr-2" size={18} />
+                    <CardContent className="space-y-6">
+                      <p className="text-lg leading-relaxed text-foreground">{horoscopes[sign.name as keyof typeof horoscopes]}</p>
+                      <div className="flex gap-3 pt-2">
+                        <Button className="bg-primary hover:bg-primary/90 font-medium">
                           Полный прогноз
                         </Button>
-                        <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
+                        <Button variant="outline" className="border-border hover:bg-secondary font-medium">
                           Персональная консультация
                         </Button>
                       </div>
@@ -245,42 +224,42 @@ export default function Index() {
               ))}
             </Tabs>
 
-            <div className="mt-12">
+            <div className="mt-16">
               <img
                 src="https://cdn.poehali.dev/projects/1135127a-a339-448f-bde7-767d994e9d13/files/b721db90-ab6d-488d-bdd2-35691ea344fa.jpg"
                 alt="Колесо зодиака"
-                className="rounded-3xl shadow-2xl mx-auto max-w-2xl w-full border-2 border-primary/30"
+                className="rounded-2xl shadow-sm mx-auto max-w-3xl w-full border border-border"
               />
             </div>
           </div>
         </section>
 
-        <section id="booking" className="container mx-auto px-4 py-20">
+        <section id="booking" className="container mx-auto px-4 py-24 bg-white">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-5xl font-bold text-center mb-4">
-              Запись на <span className="text-accent">консультацию</span>
+            <h2 className="text-5xl md:text-6xl font-bold text-center mb-4 tracking-tight">
+              Запись на консультацию
             </h2>
-            <p className="text-center text-foreground/70 mb-12 text-lg">
+            <p className="text-center text-muted-foreground mb-16 text-lg">
               Заполните форму, и я свяжусь с вами для подбора удобного времени
             </p>
 
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/30">
-              <CardContent className="pt-6">
+            <Card className="bg-white border border-border shadow-sm">
+              <CardContent className="pt-8 px-8 pb-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-lg">Ваше имя</Label>
+                    <Label htmlFor="name" className="text-sm font-medium">Ваше имя</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Как к вам обращаться?"
                       required
-                      className="bg-background/50 border-primary/30 text-lg py-6"
+                      className="h-11 border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-lg">Email</Label>
+                    <Label htmlFor="email" className="text-sm font-medium">Email</Label>
                     <Input
                       id="email"
                       type="email"
@@ -288,12 +267,12 @@ export default function Index() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="your@email.com"
                       required
-                      className="bg-background/50 border-primary/30 text-lg py-6"
+                      className="h-11 border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-lg">Телефон</Label>
+                    <Label htmlFor="phone" className="text-sm font-medium">Телефон</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -301,36 +280,35 @@ export default function Index() {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+7 (999) 123-45-67"
                       required
-                      className="bg-background/50 border-primary/30 text-lg py-6"
+                      className="h-11 border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="service" className="text-lg">Интересующая услуга</Label>
+                    <Label htmlFor="service" className="text-sm font-medium">Интересующая услуга</Label>
                     <Input
                       id="service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       placeholder="Например: Натальная карта"
                       required
-                      className="bg-background/50 border-primary/30 text-lg py-6"
+                      className="h-11 border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-lg">Дополнительная информация</Label>
+                    <Label htmlFor="message" className="text-sm font-medium">Дополнительная информация</Label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Расскажите о ваших вопросах и пожеланиях..."
                       rows={5}
-                      className="bg-background/50 border-primary/30 text-lg resize-none"
+                      className="border-border resize-none"
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-white text-lg py-6">
-                    <Icon name="Send" className="mr-2" size={20} />
+                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 font-medium">
                     Отправить заявку
                   </Button>
                 </form>
@@ -339,23 +317,25 @@ export default function Index() {
           </div>
         </section>
 
-        <footer className="container mx-auto px-4 py-12 text-center border-t border-primary/20 mt-20">
-          <p className="text-foreground/60">
-            © 2024 Астролог & Таролог • Все консультации конфиденциальны
-          </p>
-          <div className="flex justify-center gap-6 mt-6">
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              <Icon name="Instagram" size={24} />
-            </a>
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              <Icon name="Send" size={24} />
-            </a>
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              <Icon name="Mail" size={24} />
-            </a>
+        <footer className="border-t border-border bg-white py-12 mt-20">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-muted-foreground text-sm">
+              © 2024 Астролог & Таролог • Все консультации конфиденциальны
+            </p>
+            <div className="flex justify-center gap-6 mt-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icon name="Instagram" size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icon name="Send" size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icon name="Mail" size={20} />
+              </a>
+            </div>
           </div>
         </footer>
-      </div>
+      </main>
     </div>
   );
 }
